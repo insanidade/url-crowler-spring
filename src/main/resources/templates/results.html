@@ -1,0 +1,20 @@
+<html>
+<body>
+
+	<div>
+		<div>
+			<h2>Urls encontradas</h2>
+			<table>
+
+				<th:block th:each="url : ${urlsFound}">
+					<tr>
+						<td th:text="${url.url}"></td>
+					</tr>
+
+				</th:block>
+			</table>
+		</div>
+
+	</div>
+</body>
+</html>
