@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 public class FindManager {
 
 	/**
-	 * Padrao para busca de url
+	 * Search pattern
 	 * */
 	private static final Pattern urlPattern = Pattern.compile(
 	        "(?:^|[\\W])((ht|f)tp(s?):\\/\\/|www\\.)"
@@ -27,6 +27,11 @@ public class FindManager {
 	
 	
 	
+	/**
+	 * @param url The original url where the search starts
+	 * @return A List object containing Url objects that where instantiated for each url found in the 
+	 * original input url.
+	 */
 	public List<Url> findAllUrls(String url){
 		List <Url> ret = new ArrayList<Url>();
         URL inputUrl;
@@ -38,7 +43,7 @@ public class FindManager {
 	        String inputLine;
 	        while ((inputLine = in.readLine()) != null){        	
 	        	ret.addAll(findUrl(inputLine));
-	        	System.out.println("teste");
+	        	
 	        }            
 	        in.close();
 		} catch (MalformedURLException e) {
@@ -53,6 +58,10 @@ public class FindManager {
 	}
 	
 	
+	/**
+	 * @param line The line being scanned for url's.
+	 * @return A List objcect containing all Url objects found in that given line.
+	 */
 	private List <Url> findUrl(String line){				
 		List <Url> urlResultList = new ArrayList<Url>(); 
 		Matcher matcher = urlPattern.matcher(line);

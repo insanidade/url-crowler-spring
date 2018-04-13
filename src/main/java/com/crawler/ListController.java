@@ -14,6 +14,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 
+/**
+ * @author ofranca
+ *
+ */
 @Controller
 public class ListController implements WebMvcConfigurer  {
 	
@@ -23,11 +27,20 @@ public class ListController implements WebMvcConfigurer  {
         registry.addViewController("/results").setViewName("results");
     }
 
+    /**
+     * @param urlForm The form object that represents the form to be presented in the view
+     * @return The string representing the view that shall be rendered.
+     */
     @GetMapping("/")
     public String showForm(UrlForm urlForm) {
         return "form";
     }
 
+    /**
+     * @param urlForm
+     * @param bindingResult
+     * @return
+     */
     @PostMapping("/")
     public ModelAndView findAllUrls(@Valid UrlForm urlForm, BindingResult bindingResult) {
 
