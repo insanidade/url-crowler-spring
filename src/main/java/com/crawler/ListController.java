@@ -40,15 +40,6 @@ public class ListController implements WebMvcConfigurer  {
     	List<Url> urlsFound;
 
     	urlsFound = findManager.findAllUrls(urlForm.getUrl());
-    	
-//    	ModelAndView model = new ModelAndView("results", "urlsFound", urlsFound);
-    	//model.addAttribute("urlsFound", urlsFound);
-
-//    	for(int i = 0; i< urlsFound.size(); i++) {
-//    		System.out.println(urlsFound.get(i).getUrl());
-//    		
-//    	}
-        	
 
     	return new ModelAndView("results", "urlsFound", urlsFound);
     }
